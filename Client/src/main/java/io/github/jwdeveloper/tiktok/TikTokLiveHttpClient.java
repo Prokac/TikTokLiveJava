@@ -41,7 +41,7 @@ public class TikTokLiveHttpClient implements LiveHttpClient
     /**
 	 * <a href="https://github-wiki-see.page/m/isaackogan/TikTokLive/wiki/All-About-Signatures">Signing API by Isaac Kogan</a>
 	 */
-    private static final String TIKTOK_SIGN_API = "https://tiktok.eulerstream.com/webcast/fetch";
+    private static String TIKTOK_SIGN_API = "https://tiktok.eulerstream.com/webcast/fetch";
     private static final String TIKTOK_URL_WEB = "https://www.tiktok.com/";
     private static final String TIKTOK_URL_WEBCAST = "https://webcast.tiktok.com/webcast/";
     public static final String TIKTOK_GIFTS_URL = "https://raw.githubusercontent.com/TikTok-LIVE-Private/GiftsGenerator/master/page/public/gifts.json";
@@ -68,6 +68,10 @@ public class TikTokLiveHttpClient implements LiveHttpClient
     public TikTokLiveHttpClient(Consumer<LiveClientSettings> consumer) {
         this(new HttpClientFactory(LiveClientSettings.createDefault()));
         consumer.accept(clientSettings);
+    }
+
+    public static void setSignAPI(String url){
+	TIKTOK_SIGN_API = URL;
     }
 
     public GiftsData.Response fetchRoomGiftsData(String room_id) {
