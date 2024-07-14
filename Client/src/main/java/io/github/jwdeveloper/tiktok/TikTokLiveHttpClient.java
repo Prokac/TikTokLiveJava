@@ -71,7 +71,7 @@ public class TikTokLiveHttpClient implements LiveHttpClient
     }
 
     public static void setSignAPI(String url){
-	TIKTOK_SIGN_API = URL;
+	TIKTOK_SIGN_API = url;
     }
 
     public GiftsData.Response fetchRoomGiftsData(String room_id) {
