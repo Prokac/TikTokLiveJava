@@ -83,7 +83,7 @@ public class TikTokLiveHttpClient implements LiveHttpClient
 
     public GiftsData.Response getRoomGiftsData(String room_id) {
         var result = httpFactory.client(TIKTOK_ROOM_GIFTS_URL)
-            .withParam("room_id", room_id)
+            .withParam("aid", "1988")
             .build()
             .toJsonResponse();
 
