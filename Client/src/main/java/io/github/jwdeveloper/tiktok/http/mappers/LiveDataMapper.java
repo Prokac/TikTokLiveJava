@@ -50,10 +50,12 @@ public class LiveDataMapper {
         var jsonObject = parsedJson.getAsJsonObject();
 
 
-        if (!jsonObject.has("data")) {
+        var rawData = jsonObject.get("data");
+        if (rawData == null || rawData.isJsonNull() || !rawData.isJsonObject()) {
             throw new TikTokLiveRequestException("Data section not found in LiveData.Response");
         }
-        var data = jsonObject.getAsJsonObject("data");
+        var data = rawData.getAsJsonObject();
+
 
 
         if (data.has("status")) {
