@@ -54,8 +54,11 @@ public class GiftsDataMapper {
     }
 
     public static GiftsData.Response mapRoom(String json) {
-        var parsedJson = JsonParser.parseString(json);
-        var jsonObject = parsedJson.getAsJsonObject();
+      var parsedJson = JsonParser.parseString(json);
+      if (!parsedJson.isJsonObject()) {
+          return new GiftsData.Response("", List.of());
+      }
+      var jsonObject = parsedJson.getAsJsonObject();
         if (jsonObject.get("data") instanceof JsonObject data && data.get("gifts") instanceof JsonArray giftArray) {
             var gifts = new ArrayList<Gift>();
 
