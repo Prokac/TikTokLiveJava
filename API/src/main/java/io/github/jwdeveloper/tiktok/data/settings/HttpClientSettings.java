@@ -46,6 +46,9 @@ public class HttpClientSettings {
     @Setter
     private ProxyClientSettings proxyClientSettings;
 
+    @Setter
+    private ProxyClientSettings giftsProxyClientSettings;
+
     private Consumer<HttpClient.Builder> onClientCreating;
 
     private Consumer<HttpRequest.Builder> onRequestCreating;
